@@ -74,6 +74,8 @@
             this.secondsBox.Text = "0";
             this.secondsBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.secondsBox.TextChanged += new System.EventHandler(this.secondsBox_TextChanged);
+            this.secondsBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secondsBox_KeyPress);
+            this.secondsBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.secondsBox_Clicked);
             // 
             // millisecondsBox
             // 
@@ -84,6 +86,8 @@
             this.millisecondsBox.Text = "0";
             this.millisecondsBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.millisecondsBox.TextChanged += new System.EventHandler(this.millisecondsBox_TextChanged);
+            this.millisecondsBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.millisecondsBox_KeyPress);
+            this.millisecondsBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.millisecondsBox_Clicked);
             // 
             // button3
             // 
@@ -155,6 +159,8 @@
             this.iterations.Text = "0";
             this.iterations.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.iterations.TextChanged += new System.EventHandler(this.iterations_TextChanged);
+            this.iterations.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.iterations_KeyPress);
+            this.iterations.MouseDown += new System.Windows.Forms.MouseEventHandler(this.iterations_Clicked);
             // 
             // label3
             // 
@@ -215,6 +221,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Auto Clicker";
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.form_test);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,8 +28,7 @@ namespace Clicker
             await Task.Delay(5000);//wait 5 seconds before clicking
             int speedSec = int.Parse(secondsBox.Text);
             int speedMil = int.Parse(millisecondsBox.Text);
-            if (speedSec == 0 && speedMil == 0)
-            { }
+            if (speedSec == 0 && speedMil == 0) { }
             else
             {
                 if (rightCheck.Checked == true)
@@ -140,7 +139,56 @@ namespace Clicker
             if (x.Text == "")
             {
                 x.Text = "0";
+                setToEndOfLine(x);
             }
+        }
+        private void setToEndOfLine(TextBox x)
+        {
+            x.SelectionLength = x.TextLength;
+        }
+
+        private void iterations_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkForChars(e);
+        }
+
+        private void secondsBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkForChars(e);
+        }
+
+        private void millisecondsBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkForChars(e);
+        }
+
+        private void checkForChars(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void iterations_Clicked(object sender, MouseEventArgs e)
+        {
+            setToEndOfLine(iterations);
+        }
+
+        private void secondsBox_Clicked(object sender, MouseEventArgs e)
+        {
+            setToEndOfLine(secondsBox);
+        }
+
+        private void millisecondsBox_Clicked(object sender, MouseEventArgs e)
+        {
+            setToEndOfLine(millisecondsBox);
+        }
+
+        private void form_test(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.F10)//it should stop now
+                button1.PerformClick();
         }
     }    
 }
